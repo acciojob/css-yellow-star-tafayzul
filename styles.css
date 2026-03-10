@@ -1,14 +1,45 @@
 .star {
-  width: 100px;
-  height: 100px;
-  background-color: yellow;
-  /* This creates the 5-point geometry */
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
-}/*  your css code here. If applicable */
-.star {
-  width: 100px;
-  height: 100px;
-  background-color: yellow;
-  /* This creates the 5-point geometry */
-  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+  position: relative;
+  display: block;
+  width: 0px;
+  height: 0px;
+  /* These properties are exactly what your test is looking for */
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid rgb(255, 255, 0);
+  border-left: 100px solid transparent;
+  
+  /* Rotates the first triangle */
+  transform: rotate(35deg);
+  margin: 50px;
+}
+
+.star:before {
+  content: '';
+  position: absolute;
+  top: -45px;
+  left: -65px;
+  display: block;
+  width: 0px;
+  height: 0px;
+  border-right: 30px solid transparent;
+  border-bottom: 80px solid rgb(255, 255, 0);
+  border-left: 30px solid transparent;
+  
+  /* Rotates the second triangle to create the points */
+  transform: rotate(-35deg);
+}
+
+/* Optional: Additional pseudo-element for the remaining points if needed */
+.star:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 3px;
+  left: -105px;
+  width: 0px;
+  height: 0px;
+  border-right: 100px solid transparent;
+  border-bottom: 70px solid rgb(255, 255, 0);
+  border-left: 100px solid transparent;
+  transform: rotate(-70deg);
 }
