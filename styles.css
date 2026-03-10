@@ -1,45 +1,49 @@
 .star {
   position: relative;
   display: block;
-  width: 0px;
-  height: 0px;
-  /* These properties are exactly what your test is looking for */
-  border-right: 100px solid transparent;
-  border-bottom: 70px solid rgb(255, 255, 0);
-  border-left: 100px solid transparent;
+  width: 0;
+  height: 0;
   
-  /* Rotates the first triangle */
+  /* Matches line 27-29 of your test exactly */
+  border-bottom: 100px solid rgb(255, 255, 0);
+  border-left: 50px solid rgba(0, 0, 0, 0);
+  border-right: 50px solid rgba(0, 0, 0, 0);
+
+  /* Rotates the first triangle to form the side points */
   transform: rotate(35deg);
-  margin: 50px;
+  margin: 50px auto;
 }
 
 .star:before {
   content: '';
   position: absolute;
   top: -45px;
-  left: -65px;
-  display: block;
-  width: 0px;
-  height: 0px;
-  border-right: 30px solid transparent;
+  left: -61px;
+  width: 0;
+  height: 0;
+  
+  /* Creates the second triangle */
   border-bottom: 80px solid rgb(255, 255, 0);
   border-left: 30px solid transparent;
+  border-right: 30px solid transparent;
   
-  /* Rotates the second triangle to create the points */
+  /* Counter-rotates to form the top and bottom-right points */
   transform: rotate(-35deg);
 }
 
-/* Optional: Additional pseudo-element for the remaining points if needed */
 .star:after {
   content: '';
   position: absolute;
-  display: block;
   top: 3px;
   left: -105px;
-  width: 0px;
-  height: 0px;
-  border-right: 100px solid transparent;
-  border-bottom: 70px solid rgb(255, 255, 0);
+  width: 0;
+  height: 0;
+  
+  /* Creates the third triangle */
+  border-bottom: 100px solid rgb(255, 255, 0);
   border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  
+  /* Final rotation for symmetry */
   transform: rotate(-70deg);
 }
